@@ -1,27 +1,30 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import BubbleSortVisualizer from './BubbleSortVisualizer'
+import React, { useState } from 'react';
+import Topbar from './components/Tobar';
 import Sidebar from './components/Sidebar';
 import HomePage from './Homepage';
-import Topbar from './components/Tobar'
+import BubbleSortVisualizer from './BubbleSortVisualizer';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
 
   return (
-    <>
+    <div>
+   
+     
+   
 
-      <Topbar title='test' />
-      <HomePage/>
-      <Sidebar />
-      <BubbleSortVisualizer />
+        <Topbar title="Algorithm Visualizers" onToggleSidebar={toggleSidebar} />
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      
+        
+  <HomePage />
+  <BubbleSortVisualizer />
+
+    </div>
   );
 }
 
